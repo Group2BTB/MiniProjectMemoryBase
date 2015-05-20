@@ -2,30 +2,32 @@ package memorybase;
 
 import java.util.ArrayList;
 
-public class Process implements IAction {
+public class Process {
 	
-	@Override
-	public void add() {
-		// TODO Auto-generated method stub
+	ArrayList <Article> arrList = new ArrayList<Article>();
+	
+	public Process(Article art){
+		this.arrList.add(art);// add object art to 
+	}
+	
+	public void addArticle(Article art){
+		
+		arrList.add(art);
 		
 	}
-
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
+	
+	public void searchArticle(int id){
+		for(Article art : this.arrList){
+			if(art.getId() == id){
+				System.out.println(art.getId()+""+art.getTitle() + " " +art.getAuthor() +" "+art.getContent());
+			}else{
+				System.out.println("Id is invalid!");
+			}
+		}
+	}
+	
+	public void showManu(int option){
 		
 	}
-
-
-	@Override
-	public void search() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

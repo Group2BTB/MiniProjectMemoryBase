@@ -2,30 +2,36 @@ package memorybase;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
 	
 	public static void main(String[] args) {
-		ArrayList <Article> arrList = new ArrayList<Article>();
 		
-		arrList.add(new Article(1, "globle warming", "globle warming provide many", "dara"));
-		arrList.add(new Article(2, "globle warming", "globle warming provide many disadvantages", "veasna"));
-		arrList.add(new Article(3, "globle warming", "globle warming provide many disadvantages", "vicheka"));
-		arrList.add(new Article(4, "globle warming", "globle warming provide many disadvantages", "sreyroth"));
-		arrList.add(new Article(5, "globle warming", "globle warming provide many disadvantages", "chanthorn"));
-		arrList.add(new Article(6, "globle warming", "globle warming provide many disadvantages", "narith"));
-		
-		for(Article art: arrList){
+		while(true){
+			Article article = new Article();
 			
-			int a = 5;
-			
-			if(art.getAuthor() == "narith"){
-				System.out.println(art.getAuthor());
+			for(int i = 0; i <1000000; i++){
+				
 			}
-//			System.out.println(art.getAuthor());
-		}
-		
-		
-	} 
+			/*Scanner scan = new Scanner(System.in);
+			
+			
+			System.out.println("Please input Id: ");
+			article.setId(scan.nextInt());
+			
+			System.out.println("Please input Title:");
+			article.setTitle(scan.nextLine());
+			
+			System.out.println("Please input Content: ");
+			article.setContent(scan.nextLine());
+			
+			System.out.println("Please input Author: ");
+			article.setAuthor(scan.nextLine());*/
+			
+			Process pro = new Process(article);
+			pro.searchArticle(1);
+		} 
+	}
 
 }

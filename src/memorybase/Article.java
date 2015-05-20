@@ -7,6 +7,12 @@ public class Article {
 	private String content;
 	private String author;
 	
+	public Article(){
+		this.id = 0;
+		this.title = " ";
+		this.content = " ";
+		this.author = " ";
+	}
 	
 	public Article(int id, String title, String content, String author){
 		this.id = id;
