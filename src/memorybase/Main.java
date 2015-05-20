@@ -8,30 +8,26 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		while(true){
-			Article article = new Article();
+		Scanner scan = new Scanner(System.in);
+
+		
+		Process pro = new Process();
+	
+			pro.showManu();
 			
-			for(int i = 0; i <1000000; i++){
-				
-			}
-			/*Scanner scan = new Scanner(System.in);
-			
-			
-			System.out.println("Please input Id: ");
-			article.setId(scan.nextInt());
-			
-			System.out.println("Please input Title:");
-			article.setTitle(scan.nextLine());
-			
-			System.out.println("Please input Content: ");
-			article.setContent(scan.nextLine());
-			
-			System.out.println("Please input Author: ");
-			article.setAuthor(scan.nextLine());*/
-			
-			Process pro = new Process(article);
-			pro.searchArticle(1);
-		} 
+		
+		
+		/*ArrayList <Article> arr = new ArrayList<Article>();
+		for(int i = 0; i <1000000;i++){
+			Article art = new Article();
+			art.setId(i);
+			art.setTitle("Title" +i);
+			art.setContent("Content" +i);
+			art.setAuthor("Author"+i);
+			arr.add(art);
+		}
+		Process pro = new Process();
+		pro.searchArticle(arr, 2);*/
 	}
 
 }

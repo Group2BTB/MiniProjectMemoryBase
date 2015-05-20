@@ -2,7 +2,7 @@ package memorybase;
 
 public class Article {
 	
-	private int id;
+	static int id = 0;
 	private String title;
 	private String content;
 	private String author;
@@ -22,12 +22,12 @@ public class Article {
 	}
 	
 	
-	public int getId() {
-		return id;
+	public Integer getId() {
+		return Integer.valueOf(id);
 	}
 	
 	public void setId(int id) {
-		this.id = id;
+		this.id = id ;
 	}
 	
 	public String getTitle() {
