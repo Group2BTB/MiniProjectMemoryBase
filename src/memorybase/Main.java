@@ -8,12 +8,12 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
+		//Scanner scan = new Scanner(System.in);
 
 		
 		Process pro = new Process();
 	
-			pro.showManu();
+			pro.showManu(); 
 			
 		
 		
