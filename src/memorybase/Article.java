@@ -1,13 +1,22 @@
 package memorybase;
 
+import java.util.Date;
+
 public class Article {
+	/*
+	 *@param id is use to store id value of Article
+	 *@param title 
+	 *@param content
+	 *@param author
+	 */
 	
-	static int id = 0;
+	private int id;
 	private String title;
 	private String content;
 	private String author;
+	private String date;
 	
-	public Article(){
+	public Article(){// default constructor
 		this.id = 0;
 		this.title = " ";
 		this.content = " ";
@@ -54,5 +63,12 @@ public class Article {
 		this.author = author;
 	}
 	
+	public String getDate(){
+		return this.date;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 }

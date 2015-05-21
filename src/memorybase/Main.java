@@ -17,17 +17,13 @@ public class Main {
 			
 		
 		
-		/*ArrayList <Article> arr = new ArrayList<Article>();
-		for(int i = 0; i <1000000;i++){
-			Article art = new Article();
-			art.setId(i);
-			art.setTitle("Title" +i);
-			art.setContent("Content" +i);
-			art.setAuthor("Author"+i);
+		/*rrayList <Article> arr = new ArrayList<Article>();
+		
 			arr.add(art);
 		}
-		Process pro = new Process();
-		pro.searchArticle(arr, 2);*/
+		System.out.println(arr);*/
+		
+		
 	}
 
 }
