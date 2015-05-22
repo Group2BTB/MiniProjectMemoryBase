@@ -1,13 +1,17 @@
 package memorybase;
 
+import java.security.AllPermission;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Iterator;
 //import java.util.List;
 import java.util.Scanner;
+
+import org.omg.CosNaming.IstringHelper;
 
 public class Process {
 	/*
@@ -18,7 +22,7 @@ public class Process {
 	ArrayList<Article> arrList = new ArrayList<Article>();
 	Scanner scan = new Scanner(System.in);
 	public void addArticle() {
-		/*Article art = new Article();
+		Article art = new Article();
 		art.setId(++increment);
 		System.out.print("Please input Title:");
 		art.setTitle(scan.next());
@@ -31,9 +35,11 @@ public class Process {
 		
 		art.setDate(autoSetDate());
 
-		arrList.add(art);// add object to ArrayList
-*/
+		arrList.add(art);// add artect to ArrayList
+		
+		/*long s = System.currentTimeMillis();
 		for(int i = 0; i <1000000;i++){
+			
 			Article art = new Article();
 			art.setId(i);
 			art.setTitle("Title" +i);
@@ -42,13 +48,33 @@ public class Process {
 			art.setDate(autoSetDate());
 			
 			arrList.add(art);
+			
 		}
-		//scan.nextLine();
+		long st = System.currentTimeMillis();
+		System.out.println((st-s)/1000.0);*/
+		scan.nextLine();
 
 	}
 
-	public void searchArticle(ArrayList<Article> arrList, int id) {
-		try{
+	public void searchArticle(ArrayList<Article> arrList,String str) {
+		
+		Iterator<Article> itr = arrList.iterator();
+		while(itr.hasNext()){
+			Article art = itr.next(); 
+			String str1 = art.getTitle()+" "+art.getAuthor()+" "+art.getContent();
+			if(str1.toUpperCase().matches(".*"+str.toUpperCase()+".*")){
+				
+				System.out.println(art.getId()+" "+art.getTitle()+" "+art.getAuthor()+" "+art.getContent());
+				
+			}else{
+				
+				System.out.println("Sorry invalid keyword!");
+				break;
+			}
+				
+		}
+		
+		/*try{
 			int index = Collections.binarySearch(arrList, new Article(id, null,
 					null, null), new Comparator<Article>() {
 				@Override
@@ -61,7 +87,7 @@ public class Process {
 			
 		}catch(IndexOutOfBoundsException e){
 			System.out.println("Doesn't have this id in List!");
-		}
+		}*/
 		
 	}
 
@@ -77,14 +103,14 @@ public class Process {
 					addArticle();
 
 				} else if (choice == 2) {
-					System.out.println("Input id to search: ");
-					String idSearch = scan.nextLine();
 					
-					if(isInteger(idSearch) == true){
-						searchArticle(arrList,Integer.parseInt(idSearch));
-						
+					System.out.print("Search: ");
+					String keyword = scan.next();
+					if(keyword == null){
+						System.out.println("Please input keyword!");
 					}else{
-						System.out.println("Your id is not valid! Please try again...");
+						searchArticle(arrList, keyword);
+						scan.nextLine();
 					}
 					
 				} else if (choice == 3) {
@@ -101,12 +127,6 @@ public class Process {
 
 		}
 	}
-
-	/*
-	 * public int setSearchId(){
-	 * System.out.println("Please input Id you want search: "); return
-	 * scan.nextInt(); }
-	 */
 
 	public void display() {
 		for (Article art : arrList) {
