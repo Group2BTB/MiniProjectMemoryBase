@@ -16,21 +16,18 @@ public class Article {
 	private String author;
 	private String date;
 	
-	public Article(){// default constructor
-		this.id = 0;
-		this.title = " ";
-		this.content = " ";
-		this.author = " ";
-	}
-	
-	public Article(int id, String title, String content, String author){
+	public Article(int id, String title, String content, String author, String date){
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.author = author;
+		this.date = date;
 	}
 	
-	
+	public Article() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getId() {
 		return Integer.valueOf(id);
 	}
