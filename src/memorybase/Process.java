@@ -20,9 +20,12 @@ public class Process {
 	private static int increment = 0;
 
 	ArrayList<Article> arrList = new ArrayList<Article>();
-	Scanner scan = new Scanner(System.in);
+	
+	ArrayList<Article> indexSearch = new ArrayList<Article>();
+	
 	public void addArticle() {
-		Article art = new Article();
+		/*Article art = new Article();
+		Scanner scan = new Scanner(System.in);
 		art.setId(++increment);
 		System.out.print("Please input Title:");
 		art.setTitle(scan.next());
@@ -36,9 +39,9 @@ public class Process {
 		art.setDate(autoSetDate());
 
 		arrList.add(art);// add artect to ArrayList
-		
-		/*long s = System.currentTimeMillis();
-		for(int i = 0; i <1000000;i++){
+*/		
+		long s = System.currentTimeMillis();
+		for(int i = 0; i <1000;i++){
 			
 			Article art = new Article();
 			art.setId(i);
@@ -51,27 +54,29 @@ public class Process {
 			
 		}
 		long st = System.currentTimeMillis();
-		System.out.println((st-s)/1000.0);*/
-		scan.nextLine();
+		System.out.println((st-s)/1000.0);
 
 	}
 
 	public void searchArticle(ArrayList<Article> arrList,String str) {
-		
+		/*
+		 * @param art of Object Article to store " itr.next()".
+		 * @param itrIndex use to store index when condition "{str1.toUpperCase().matches(".*"+str.toUpperCase()+".*"}" is true
+		 */
 		Iterator<Article> itr = arrList.iterator();
+		String str1 = "";
+		int itrIndex = 0;
 		while(itr.hasNext()){
 			Article art = itr.next(); 
-			String str1 = art.getTitle()+" "+art.getAuthor()+" "+art.getContent();
+			str1 = art.getTitle()+" "+art.getAuthor()+" "+art.getContent();
 			if(str1.toUpperCase().matches(".*"+str.toUpperCase()+".*")){
-				
-				System.out.println(art.getId()+" "+art.getTitle()+" "+art.getAuthor()+" "+art.getContent());
-				
-			}else{
-				
-				System.out.println("Sorry invalid keyword!");
-				break;
+				indexSearch.add(art);
+				//System.out.println(art.getId()+" "+art.getTitle()+" "+art.getAuthor()+" "+art.getContent());
 			}
 				
+		}
+		if(str1.toUpperCase().matches(".*"+str.toUpperCase()+".*") == false){
+			System.out.println("Sorry invalid keyword!");
 		}
 		
 		/*try{
@@ -92,7 +97,7 @@ public class Process {
 	}
 
 	public void showManu() {
-
+		Scanner scan = new Scanner(System.in);// Create object scan to take Data form keyboard
 		while (true) {
 			System.out.print("--> Choose: ");
 			String option = scan.nextLine();
@@ -105,13 +110,8 @@ public class Process {
 				} else if (choice == 2) {
 					
 					System.out.print("Search: ");
-					String keyword = scan.next();
-					if(keyword == null){
-						System.out.println("Please input keyword!");
-					}else{
-						searchArticle(arrList, keyword);
-						scan.nextLine();
-					}
+					String keyWord = scan.nextLine();
+					searchArticle(arrList, keyWord);
 					
 				} else if (choice == 3) {
 					display();
@@ -124,7 +124,6 @@ public class Process {
 			} else {
 				System.out.println("Input invalid id!");
 			}
-
 		}
 	}
 
